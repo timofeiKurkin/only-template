@@ -25,12 +25,14 @@ export default class Counter extends Component {
     }
 
     incHandler = (e: MouseEvent) => {
+        e.preventDefault()
         this.num+=1
         this.countText.textContent = `${this.num+1}`
         this.mainCount.textContent = `${this.num+1}`
     }
 
     decHandler = (e:MouseEvent) => {
+        e.preventDefault()
         if(this.num <= 0) return 0
         this.countText.textContent = `${this.num-1}`
         this.mainCount.textContent = `${this.num-1}`
