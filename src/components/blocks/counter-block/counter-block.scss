@@ -1,0 +1,15 @@
+.counter-block {
+    &__wrapper {
+        color: $dark-blue;
+        text-align: center;
+
+    }
+    &__mainNum {
+        margin: 71px 0 108px 0;
+
+        font-size: 128px;
+        color: $dark-blue;
+    }
+}
+
+

@@ -1,0 +1,11 @@
+mixin swiper-body(props)
+    .swiper-body&attributes(attributes)
+        .swiper-button-prev.slide-arrow.slide-arrow__left
+            +svg('arrow')
+        .swiper
+            .swiper-wrapper
+                each slide in props
+                    .swiper-slide
+                        +img(slide)
+        .swiper-button-next.slide-arrow.slide-arrow__right
+            +svg('arrow')
