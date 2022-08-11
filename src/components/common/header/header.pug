@@ -1,2 +1,9 @@
 mixin header(props)
-    .header&attributes(attributes)
+    header&attributes(attributes).header
+        .header__wrapper
+            a(href='/').header__logo
+                +svg('logo')
+            .header__row
+                nav.header__nav
+                    a(href='/').header__nav-link ЗАДАНИЕ 1
+                    a(href='/swiper.html').header__nav-link ЗАДАНИЕ 2

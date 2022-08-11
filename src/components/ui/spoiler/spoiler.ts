@@ -8,6 +8,7 @@ export default class Spoiler extends Component {
 
     clickHandler = (e: Event) => {
         const spoilerElement = (<HTMLElement>e.target).closest('.spoiler__btn')
+        console.log(spoilerElement)
         if (!spoilerElement) return
 
         const textBlock = spoilerElement.nextElementSibling as HTMLElement
