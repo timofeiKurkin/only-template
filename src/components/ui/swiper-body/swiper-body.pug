@@ -6,6 +6,7 @@ mixin swiper-body(props)
             .swiper-wrapper
                 each slide in props
                     .swiper-slide
-                        +img(slide)
+                            +img(slide)
+                            +counter
         .swiper-button-next.slide-arrow.slide-arrow__right
             +svg('arrow')

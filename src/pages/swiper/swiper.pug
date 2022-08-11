@@ -1,0 +1,9 @@
+extends ../../app/pug/layout
+
+block title
+    | Counter
+
+block content
+    main(data-barba="container" data-barba-namespace="common" data-page-namespace="swiper").content-wrapper
+        +counter-section
+            +modal(dataJson.index.image)
