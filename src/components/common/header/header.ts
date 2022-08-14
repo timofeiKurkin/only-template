@@ -1,35 +1,41 @@
 import Component, {ComponentProps} from '@/base/component';
-import barba from "@barba/core";
-import gsap from 'gsap';
-import {getComponent} from "@/helpers/helpers";
 
 export default class Header extends Component {
-    btnLink: any
+    private readonly _pathMain: string
+    private readonly _pathSwiper: string
+    links: HTMLElement[]
+    logo: HTMLElement
+    link: HTMLElement
+
     constructor(element: ComponentProps) {
         super(element);
-        this.btnLink = getComponent('nav-link')
-        console.log(this.btnLink)
-        this.btnLink.addEventListener('click', this.destroy)
-        //
-        // barba.init({
-        //     transitions: [{
-        //         name: 'opacity-transition',
-        //         leave(data) {
-        //             console.log(data)
-        //             return gsap.to(data.current.container, {
-        //                 opacity: 0
-        //             })
-        //         },
-        //         enter(data) {
-        //             return gsap.from(data.next.container, {
-        //                 opacity: 0,
-        //             });
-        //         }
-        //     }]
-        // })
+        this._pathMain = '/'
+        this._pathSwiper = '/swiper.html'
+
+        this.links = this.getElements('nav-link')!
+
+        this.logo = this.getElement('logo')!
+        this.link = this.getElement('nav')!
+
+        this.links.forEach((item) => {
+            window.location.pathname === this._pathMain ? this.links[0].classList.add('is-active') : this.links[1].classList.add('is-active')
+            item.addEventListener('click', this.clickHandler)
+        })
     }
 
-    destroy = () => {
-        console.log(this.btnLink)
+    clickHandler = (e:Event) => {
+        this.links.forEach((link, i) => {
+            for (let j = 0; j < this.links.length; j++) {
+                i !== j ? link.classList.remove('is-active') : (<HTMLElement>e.target).classList.add('is-active')
+            }
+        })
+    }
+
+    logoFill = () => {
+        this.logo.style.fill = '#000'
+    }
+
+    linkVisibility = (param: string) => {
+        this.link.style.visibility = `${param}`
     }
 }

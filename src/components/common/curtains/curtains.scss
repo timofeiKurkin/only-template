@@ -1,0 +1,26 @@
+.curtains {;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 999;
+
+    &__top {
+        position: fixed;
+        z-index: 999;
+        top: 0;
+        height: 0;
+        width: 100%;
+        background-color: $black;
+        transition: none;
+    }
+
+    &__bottom {
+        position: fixed;
+        z-index: 999;
+        bottom: 0;
+        height: 0;
+        width: 100%;
+        background-color: $black;
+        transition: none;
+    }
+}
