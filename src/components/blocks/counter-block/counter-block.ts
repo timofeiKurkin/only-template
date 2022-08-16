@@ -14,4 +14,3 @@ export default class CounterBlock extends Component {
         this.mainNum.textContent = `${value}`
     }
 }
-console.log('counter block')
