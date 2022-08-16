@@ -35,5 +35,9 @@ export default class SwiperBody extends Component {
     private setActiveCounter(counter: any) {
         console.log(counter)
     }
+    getActiveCounter = () => {
+        return 0
+    }
+
 }
 

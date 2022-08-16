@@ -1,11 +1,9 @@
 import {getComponent, getComponents} from '@/helpers/helpers';
 import { ITransitionData } from '@barba/core/dist/core/src/defs';
-import SwiperBody from "@/components/ui/swiper-body/swiper-body";
-import Modal from "@/components/blocks/modal/modal";
-import CounterBlock from "@/components/blocks/counter-block/counter-block";
 import CounterSection from "@/components/sections/counter-section/counter-section";
 import Spoiler from "@/components/ui/spoiler/spoiler";
-import Header from "@/components/common/header/header";
+import Button from "@/components/ui/button/button";
+import SwiperBody from "@/components/ui/swiper-body/swiper-body";
 
 export default {
     namespace: 'common',
@@ -14,11 +12,10 @@ export default {
             if(getComponent('spoiler', next.container).component) {
                 getComponents('spoiler', next.container).map(item => new Spoiler(item))
             }
-            new SwiperBody(getComponent('swiper-body'))
-            new Modal(getComponent('modal'))
-            new CounterSection(getComponent('counter-section'))
-            new CounterBlock(getComponent('counter-block'))
-
+            // if(getComponent('counter-section').component) {
+                new CounterSection(getComponent('counter-section'))
+            // }
+            // new SwiperBody(getComponent('swiper-body'))
         } catch (e) {
             console.error(e);
         }
