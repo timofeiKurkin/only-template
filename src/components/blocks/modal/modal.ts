@@ -5,28 +5,28 @@ import CounterBlock from "@/components/blocks/counter-block/counter-block";
 import SwiperBody from "@/components/ui/swiper-body/swiper-body";
 
 export default class Modal extends Component {
-    initialCounters: Counter[];
+    // initialCounters: Counter[];
     counterBlock: any
     slider: any
     constructor(element: ComponentProps, counterBlock: CounterBlock) {
         super(element);
 
         this.counterBlock = counterBlock
-        this.slider = new SwiperBody(getComponent('swiper-body', this.nRoot))
 
-        this.initialCounters = getComponents("counter", this.nRoot).map((component) => new Counter(component))
+        this.slider = new SwiperBody(getComponent('swiper-body', this.nRoot))
+    }
+
+    getCounter = () => {
+        this.counterBlock.setValue(this.slider.getActiveCounter());
     }
 
     modalVisible = () => {
-        console.log('open')
         this.nRoot.style.visibility = 'visible'
+        this.getCounter()
     }
 
     modalHidden = () => {
         this.nRoot.style.visibility = 'hidden'
-
-        const activeValue = this.slider.getActiveCounter()
-        console.log(activeValue)
-        this.counterBlock.setValue(activeValue);
+        this.getCounter()
     }
 }

@@ -3,22 +3,17 @@ import Component, { ComponentProps } from '@/base/component';
 export default class Counter extends Component {
     inc:HTMLElement
     dec:HTMLElement
-    num:number
+    value:number
     countText: HTMLElement
-    mainCount: HTMLElement
 
     constructor(element: ComponentProps) {
         super(element);
 
-        this.mainCount = document.querySelector('.counter-block__mainNum')!
         this.countText = this.getElement('num')!
-        this.num = 0
+        this.value = 0
+        this.countText.textContent = `${this.value}`
         this.dec = this.getElement('dec')!
         this.inc = this.getElement('inc')!
-
-        this.countText.textContent = `${this.num}`
-        this.mainCount.textContent = `${this.num}`
-
 
         this.inc.addEventListener('click', this.incHandler)
         this.dec.addEventListener('click', this.decHandler)
@@ -26,17 +21,18 @@ export default class Counter extends Component {
 
     incHandler = (e: MouseEvent) => {
         e.preventDefault()
-        this.num+=1
-        this.countText.textContent = `${this.num}`
-        this.mainCount.textContent = `${this.num}`
+        e.stopPropagation()
+
+        this.value += 1
+        this.countText.textContent = `${this.value}`
     }
 
     decHandler = (e:MouseEvent) => {
+        e.stopPropagation()
         e.preventDefault()
-        if(this.num <= 0) return 0
-        this.num-=1
-        this.countText.textContent = `${this.num}`
-        this.mainCount.textContent = `${this.num}`
 
+        if(this.value <= 0) return 0
+        this.value -= 1
+        this.countText.textContent = `${this.value}`
     }
 }

@@ -12,7 +12,7 @@ export default class CounterSection extends Component {
     constructor(element: ComponentProps) {
         super(element);
         this.counterBlock = new CounterBlock(getComponent('counter-block', this.nRoot))
-        this.modal = new Modal(getComponent('counter-block', this.nRoot), this.counterBlock)
+        this.modal = new Modal(getComponent('modal', this.nRoot), this.counterBlock)
 
         this.btnOpen = this.getElement('open')!
         this.btnClose = this.getElement('close')!
@@ -28,9 +28,4 @@ export default class CounterSection extends Component {
     closeModal = () => {
         this.modal.modalHidden()
     }
-
-    destroy = () => {
-
-    }
-
 }

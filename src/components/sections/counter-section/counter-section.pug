@@ -2,5 +2,5 @@ mixin counter-section(props)
     .counter-section&attributes(attributes)
         .counter-section__wrapper
             +counter-block
-            +button.button__open Открыть
-            block
+            +button.counter-section__open Открыть
+            +modal(props)

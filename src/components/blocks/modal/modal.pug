@@ -1,5 +1,6 @@
 mixin modal(props)
     .modal&attributes(attributes)
-        +button.button__close Закрыть
-        +swiper-body(props)
+        .modal__wrapper
+            +button.counter-section__close Закрыть
+            +swiper-body(props)
 
