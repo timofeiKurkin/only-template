@@ -1,11 +1,9 @@
 import Component, { ComponentProps } from '@/base/component';
-import Counter from "@/components/ui/counter/counter";
-import {getComponent, getComponents} from "@/helpers/helpers";
+import {getComponent} from "@/helpers/helpers";
 import CounterBlock from "@/components/blocks/counter-block/counter-block";
 import SwiperBody from "@/components/ui/swiper-body/swiper-body";
 
 export default class Modal extends Component {
-    // initialCounters: Counter[];
     counterBlock: any
     slider: any
     constructor(element: ComponentProps, counterBlock: CounterBlock) {
@@ -21,7 +19,7 @@ export default class Modal extends Component {
     }
 
     getCounter = () => {
-        this.slider.getCurrentValue()
+        this.slider.setCurrentValue()
         this.counterBlock.setValue(this.slider.getActiveCounter());
     }
 

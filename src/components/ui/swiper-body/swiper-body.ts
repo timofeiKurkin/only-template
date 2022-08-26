@@ -31,12 +31,12 @@ export default class SwiperBody extends Component {
         this.swiper.on('slideChange', this.onSlideChange);
     }
 
-    getCurrentValue = () => {
+    setCurrentValue = () => {
         this.setActiveCounter(this.counters[this.swiper.realIndex])
     }
 
     onSlideChange = () => {
-        this.getCurrentValue()
+        this.setCurrentValue()
     }
 
     private setActiveCounter = (value: any) => {
