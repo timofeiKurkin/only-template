@@ -31,8 +31,12 @@ export default class SwiperBody extends Component {
         this.swiper.on('slideChange', this.onSlideChange);
     }
 
-    onSlideChange = () => {
+    getCurrentValue = () => {
         this.setActiveCounter(this.counters[this.swiper.realIndex])
+    }
+
+    onSlideChange = () => {
+        this.getCurrentValue()
     }
 
     private setActiveCounter = (value: any) => {
@@ -40,7 +44,7 @@ export default class SwiperBody extends Component {
     }
 
     getActiveCounter = () => {
-        (!this.activeCount || this.activeCount) && this.setActiveCounter(this.counters[this.swiper.realIndex])
+        // (!this.activeCount || this.activeCount) && this.setActiveCounter(this.counters[this.swiper.realIndex])
         return this.activeCount
     }
 

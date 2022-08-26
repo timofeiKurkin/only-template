@@ -16,13 +16,13 @@ export default class Modal extends Component {
         this.slider = new SwiperBody(getComponent('swiper-body', this.nRoot))
     }
 
-    getCounter = () => {
-        this.counterBlock.setValue(this.slider.getActiveCounter());
-    }
-
     modalVisible = () => {
         this.nRoot.style.visibility = 'visible'
-        this.getCounter()
+    }
+
+    getCounter = () => {
+        this.slider.getCurrentValue()
+        this.counterBlock.setValue(this.slider.getActiveCounter());
     }
 
     modalHidden = () => {
