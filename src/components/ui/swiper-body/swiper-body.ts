@@ -5,9 +5,9 @@ import {getComponents} from "@/helpers/helpers";
 import Counter from "@/components/ui/counter/counter";
 
 export default class SwiperBody extends Component {
-    activeCount: any
-    swiper: any
-    counters: any
+    activeCount: number
+    swiper: Swiper
+    counters: Counter[]
 
     constructor(element: ComponentProps) {
         super(element);
@@ -45,6 +45,7 @@ export default class SwiperBody extends Component {
 
     getActiveCounter = () => {
         // (!this.activeCount || this.activeCount) && this.setActiveCounter(this.counters[this.swiper.realIndex])
+
         return this.activeCount
     }
 

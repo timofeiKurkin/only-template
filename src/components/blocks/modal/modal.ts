@@ -4,8 +4,9 @@ import CounterBlock from "@/components/blocks/counter-block/counter-block";
 import SwiperBody from "@/components/ui/swiper-body/swiper-body";
 
 export default class Modal extends Component {
-    counterBlock: any
-    slider: any
+    counterBlock: CounterBlock
+    slider: SwiperBody
+
     constructor(element: ComponentProps, counterBlock: CounterBlock) {
         super(element);
 
